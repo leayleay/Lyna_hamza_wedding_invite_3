@@ -14,12 +14,23 @@ function setupSongSheet() {
     sheet.setFrozenRows(1);
     sheet.setColumnWidths(2, 3, 220);
     sheet.getRange('A:A').setNumberFormat('yyyy-mm-dd hh:mm');
-    sheet.getRange('E2:E').setDataValidation(SpreadsheetApp.newDataValidation().requireCheckbox().build());
     sheet.hideColumns(6, 2);
   }
   if (!sheet.getFilter()) sheet.getRange(1, 1, sheet.getMaxRows(), 5).createFilter();
   PropertiesService.getScriptProperties().setProperty('WEDDING_SHEET_ID', spreadsheet.getId());
   console.log('La feuille Chansons est prête. Déployez le script en application Web.');
+}
+
+// Empty checkboxes are not song data. Never use column E to locate new rows.
+function lastSongRow(sheet) {
+  const lastRow = sheet.getLastRow();
+  if (lastRow < 2) return 1;
+  const rows = sheet.getRange(2, 1, lastRow - 1, 7).getValues();
+  for (let index = rows.length - 1; index >= 0; index--) {
+    const row = rows[index];
+    if ([0, 1, 2, 3, 5, 6].some(column => row[column] !== '' && row[column] != null)) return index + 2;
+  }
+  return 1;
 }
 
 function doGet() {
@@ -63,7 +74,7 @@ function doPost(event) {
       if (!spreadsheetId) throw new Error('Exécutez setupSongSheet avant le déploiement.');
       const sheet = SpreadsheetApp.openById(spreadsheetId).getSheetByName('Chansons');
       if (!sheet) throw new Error('Feuille introuvable');
-      const lastRow = sheet.getLastRow();
+      const lastRow = lastSongRow(sheet);
       const previous = lastRow > 1 ? sheet.getRange(2, 6, lastRow - 1, 2).getValues().filter(row => row[0] === requestId) : [];
       if (previous.length) {
         if (previous.length !== songs.length || previous.some(row => row[1] !== signature)) throw new Error('Envoi incohérent');

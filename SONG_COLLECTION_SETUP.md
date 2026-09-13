@@ -21,6 +21,14 @@ Les origines autorisées dans `song-collection.gs` sont `https://leayleay.github
 
 ## Fonctionnement
 
+### Si les chansons apparaissent vers la ligne 1001
+
+Les anciennes cases à cocher pouvaient faire compter les lignes vides comme des lignes utilisées. Les chansons étaient bien enregistrées, mais sous ces lignes.
+
+Pour les remonter, supprimez uniquement les lignes entièrement vides au-dessus des premières suggestions (hors cases à cocher inutilisées), en conservant l’en-tête et toutes les lignes contenant une chanson. Si la première suggestion est à la ligne 1001 et que les lignes 2 à 1000 sont vides, sélectionnez **2:1000**, puis **clic droit → Supprimer les lignes 2 à 1000**.
+
+Le fichier `song-collection.gs` corrigé ne prépare plus de cases à cocher sur les lignes vides et ignore cette colonne pour trouver la prochaine ligne. Pour appliquer ce correctif à Google : remplacez le code Apps Script, enregistrez, puis **Déployer → Gérer les déploiements → Modifier → Nouvelle version → Déployer**. Gardez le déploiement existant pour conserver la même URL.
+
 La page transmet les champs dans un cadre invisible. Le script valide tous les titres avant de les écrire, conserve un identifiant d’envoi pour éviter les doublons lors d’une nouvelle tentative, puis confirme la réception à la page. La page ne montre un remerciement qu’après cette confirmation. Une erreur conserve la sélection à réessayer ; le chargement du cadre seul ne compte jamais comme un envoi réussi.
 
 L’ancien serveur SQLite et les éventuelles réponses dans `.data` sont conservés, mais le formulaire utilise maintenant uniquement Google Sheets. Aucun serveur Python ni abonnement d’hébergement supplémentaire n’est nécessaire pour cette nouvelle connexion.
