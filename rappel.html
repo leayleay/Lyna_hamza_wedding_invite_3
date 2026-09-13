@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>On se retrouve bientôt — Lyna & Hamza · 20.09.2026</title>
+  <meta name="description" content="Le grand jour approche ! Retrouvez le programme, le menu et proposez vos chansons. Le 20 septembre, merci d’arriver avant midi : la mariée entre à 12 h précises.">
+  <meta name="theme-color" content="#f6f3ec">
+  <meta name="color-scheme" content="light">
+  <meta property="og:title" content="Lyna & Hamza — On se retrouve bientôt !">
+  <meta property="og:description" content="20 septembre 2026 : entrée de la mariée à 12 h précises. Merci d’arriver avant midi. Retrouvez le programme, le menu et proposez vos chansons.">
+  <meta property="og:image" content="https://leayleay.github.io/Lyna_hamza_wedding_invite_3/IMG_6472.WEBP">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:url" content="https://leayleay.github.io/Lyna_hamza_wedding_invite_3/rappel.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="reminder-monogram.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="reminder.css">
+  <script src="song-collection-config.js" defer></script>
+  <script src="reminder-songs.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <main id="main" class="reminder">
+    <header class="intro">
+      <p class="eyebrow">LE GRAND JOUR APPROCHE</p>
+      <h1>Lyna <em>&</em> Hamza</h1>
+      <p class="welcome">On a hâte de vous retrouver !</p>
+      <p class="date">Dimanche <strong>20 septembre 2026</strong> · <strong>12 h précises</strong></p>
+      <p class="arrival-note">Merci d’être sur place avant midi pour l’entrée de la mariée.</p>
+      <p class="venue">Le Classique · Salle Vivace · Chagall</p>
+      <div class="quick-links"><a href="https://maps.app.goo.gl/iS2mHmwYTTPFkf9S7" target="_blank" rel="noopener noreferrer">Itinéraire ↗</a><span aria-hidden="true">·</span><a href="lyna-hamza.ics" download>Ajouter au calendrier</a></div>
+    </header>
+
+    <div class="ornament" aria-hidden="true"><span>❖</span></div>
+
+    <div class="content-grid">
+      <section class="programme" id="programme" aria-labelledby="programme-title">
+        <p class="eyebrow">POUR PROFITER DE CHAQUE INSTANT</p>
+        <h2 id="programme-title">Le programme</h2>
+        <ol class="timeline">
+          <li><time datetime="2026-09-20T12:00:00-04:00">12 h</time><div><h3>Entrée de la mariée</h3><p>Tous les invités doivent être présents.</p></div></li>
+          <li><time datetime="2026-09-20T12:30:00-04:00">12 h 30</time><div><h3>Début du repas</h3>
+            <details id="menu" class="menu"><summary>Voir le menu <span aria-hidden="true">+</span></summary><div class="menu-content">
+              <div><h4>À l’arrivée</h4><p>Canapés froids servis à table</p></div>
+              <div><h4>Entrées</h4><p>Velouté crème de légumes<br>Salade fraîche et ses condiments</p></div>
+              <div><h4>Plat principal</h4><p>Bœuf braisé ou suprême de poulet<br><span>Pommes de terre et légumes de saison</span></p></div>
+              <div><h4>Dessert</h4><p>Gâteau de mariage</p></div>
+            </div></details>
+          </div></li>
+          <li><time datetime="2026-09-20T15:00:00-04:00">15 h</time><div><h3>Ouverture du bal</h3><p>Puis, place à la danse !</p></div></li>
+          <li><time datetime="2026-09-20T16:00:00-04:00">16 h</time><div><h3>Activité</h3></div></li>
+          <li><time datetime="2026-09-20T18:00:00-04:00">18 h</time><div><h3>Découpe du gâteau</h3></div></li>
+        </ol>
+      </section>
+
+      <section class="song-card" id="playlist" aria-labelledby="playlist-title">
+        <div class="song-heading"><div><p class="eyebrow">À VOUS DE CHOISIR</p><h2 id="playlist-title">On danse<br>sur <em>quoi ?</em></h2></div><div class="vinyl" aria-hidden="true"><div>L<span>&</span>H<i></i></div></div></div>
+        <p class="song-intro">Une ou plusieurs chansons pour la fête.</p>
+        <form id="song-form">
+          <label for="guest-name">Votre prénom</label>
+          <input id="guest-name" name="guestName" autocomplete="given-name" maxlength="80" required>
+          <div id="song-entries"><fieldset class="song-entry"><legend>Chanson 1</legend>
+          <label for="song-title">Titre de la chanson</label>
+          <input id="song-title" name="songTitle" maxlength="120" required>
+          <label for="song-artist">Artiste</label>
+          <input id="song-artist" name="songArtist" maxlength="120" required>
+          <button class="remove-song" type="button" hidden>Retirer</button>
+          </fieldset></div>
+          <button id="add-song" type="button" disabled>+ Ajouter une chanson</button>
+          <div class="form-trap" aria-hidden="true"><label for="website">Site web</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+          <button id="send-song" type="submit" disabled>Envoyer mes chansons</button>
+          <p class="sharing-hint">Vos suggestions sont envoyées aux mariés.</p>
+          <p id="song-status" role="status" aria-live="polite"></p>
+          <noscript><p class="sharing-hint">Activez JavaScript pour envoyer votre chanson.</p></noscript>
+        </form>
+      </section>
+    </div>
+
+    <div class="ornament" aria-hidden="true"><span>❖</span></div>
+
+    <footer><span aria-hidden="true">♡</span> À très bientôt ! <a href="index.html">Revoir l’invitation ↗</a></footer>
+  </main>
+</body>
+</html>
